@@ -6,12 +6,12 @@
 #include "UnsortedList.h"
 
 using namespace std;
-void PrintList(ofstream& outFile, UnsortedList& list);
+void PrintList(ofstream& outFile, UnsortedList<int>& list);
 
 int main()
 {
-	ifstream inFile;       // file containing operations
-	ofstream outFile;      // file containing output
+	ifstream inFile;       // reading a file
+	ofstream outFile;      // writing to a file
 	string inFileName;     // input file external name
 	string outFileName;    // output file external name
 	string outputLabel;
@@ -19,7 +19,20 @@ int main()
 
 	int number;
 	int item;
-	UnsortedList list;
+	UnsortedList<int> list; // this is where the default constructor is first called // replaces every T with int in templates
+	// list.AddItem(6);
+	// list.AddItem(8);
+	// list.AddItem(-2);
+	// list.AddItem(3);
+	// if (list.Contains(8))
+	// {
+	// 	cout << "Yay!" << endl;
+	// }
+	// if (!list.Contains(66))
+	// {
+	// 	cout << "Confirmed... 66 not in the list" << endl;
+	// }
+	// list.DeleteItem(-2);
 
 	bool found;
 
@@ -40,6 +53,7 @@ int main()
 
 	inFile >> command;
 	//cin >> command;  // use cin instead of inFile if you want to do command line testing instead
+	// refer to 1:03:00 lect Aug 28, 2025 for assignment 1 notes
 
 	int numCommands = 0;
 	while (command != "Quit")
@@ -111,7 +125,7 @@ int main()
 };
 
 
-void PrintList(ofstream& dataFile, UnsortedList& list)
+void PrintList(ofstream& dataFile, UnsortedList<int>& list)
 // Pre:  list has been initialized.      
 //       dataFile is open for writing.   
 // Post: Each component in list has been written to dataFile.
